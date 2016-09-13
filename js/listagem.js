@@ -14,16 +14,56 @@ $(document).ready(function(){
             
             var data = new Date(dados[i].data);           
         
-            var tr = $('<tr>'
+            var tr = $('<tr os-num="'+dados[i].numero+'">'
+                            +'<td>'+ dados[i].numero +'</td>'
                             +'<td>'+ dados[i].solicitante +'</td>'
-                            +'<td>'+ data.getDate() +'/'+ data.getMonth() +'/'+ data.getFullYear() +'/'+ data.getHours() +':'+ data.getMinutes() +'</td>'
+                            +'<td>'+ data.getDate() +'/'+ data.getMonth() +'/'+ data.getFullYear() +' '+ data.getHours() +':'+ data.getMinutes() +'</td>'
                             +'<td>'+ dados[i].departamento +'</td>'
                             +'<td><span class="label label-'+status+'">'+ dados[i].status +'</span>'
                             +'</td>'                                       
                         +'</tr>');
-            $('lista-os tbody').append(tr);        
+                
+            $(tr).click(abreOS);       
+            
+            $('#lista-os tbody').append(tr);        
         }       
         
-    });        
+    });  
+    
+    $('#btn-criar').click(function (){
+        
+       $('#modal-abrir .modal-body .form-group').removeClass('has-error');
+       
+       if ($('#solicitante').val() == "")
+       {
+           $('#solicitante').parent().parent().addClass('has-error');
+       }
+       if ($('#solicitacao').val() == "")
+       {
+           $('#solicitacao').parent().parent().addClass('has-error');
+       }
+    });
+    
+    $('#modal-abrir').on('show.bs.modal', function(){
+        $('#modal-abrir .modal-body .form-group').removeClass('has-error');
+        $('#modal-abrir .modal-body .form-group input').val('');
+        $('#modal-abrir .modal-body .form-group textarea').val('');
+    });
 });
 
+var abreOS = function(){
+    
+    var os = {"num": $(this).attr('os-num')}
+    $.getJSON('/model/exibir-os.php',os, function(dados){
+        
+        $('#modal-os .campo-numero').html(dados[0].numero);
+        $('#modal-os .campo-solicitante').html(dados[0].solicitante);
+        $('#modal-os .campo-data').html(dados[0].data);
+        $('#modal-os .campo-departamento').html(dados[0].departamento);
+        $('#modal-os .campo-solicitacao').html(dados[0].solicitacao);        
+        
+        $('#modal-os').modal({
+        show: true
+        }); 
+    });
+};
