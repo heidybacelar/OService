@@ -2,7 +2,8 @@
 
 require_once 'config.php';
 
-$sql = "SELECT * FROM os";
+$sql = "SELECT * FROM os "
+       . "ORDER BY data DESC";
 
 $resultado = $db ->query($sql);
 

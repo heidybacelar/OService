@@ -9,6 +9,7 @@
         <script src="js/jquery-3.1.0.min.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/listagem.js"></script>
+        <script src="js/criar.js"></script>
         
     </head>
     <body>
@@ -120,42 +121,44 @@
                     </div>
                     <div class="modal-body">
                         
-        <form class="form-horizontal">
-            <fieldset>
-           
-            <!-- Select Basic -->
-            <div class="form-group">
-                <label class="col-md-3 control-label" for="destino">Destino</label>
-                <div class="col-md-8">
-                    <select id="destino" name="destino" class="form-control">
-                        <option value="Manutenção">Manutenção</option>
-                        <option value="TI">TI</option>
-                        <option value="Costureira">Costureira</option>
-                        <option value="Limpeza">Limpeza</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-3 control-label" for="solicitante">Solicitante</label>  
-                <div class="col-md-8">
-                    <input id="solicitante" name="solicitante" type="text" placeholder="" class="form-control input-md">
-
-                </div>
-            </div>            
-
-            <!-- Textarea -->
-            <div class="form-group">
-                <label class="col-md-3 control-label" for="solicitação">Solicitação</label>
-                <div class="col-md-8">                     
-                    <textarea class="form-control" id="solicitacao" name="solicitação"></textarea>
-                </div>
-            </div>            
-
-            </fieldset>
-        </form>
+                    <div id="alerta-form" class="alert alert-danger hide" role="alert">Ocorreu um erro ao gravar</div>                            
                         
+                    <form id="form-criar" class="form-horizontal">
+                        <fieldset>
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="destino">Departamento</label>
+                            <div class="col-md-8">
+                                <select id="departamento" name="destino" class="form-control">
+                                    <option value="Manutenção">Manutenção</option>
+                                    <option value="TI">TI</option>
+                                    <option value="Costureira">Costureira</option>
+                                    <option value="Limpeza">Limpeza</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="solicitante">Solicitante</label>  
+                            <div class="col-md-8">
+                                <input id="solicitante" name="solicitante" type="text" placeholder="" class="form-control input-md">
+
+                            </div>
+                        </div>            
+
+                        <!-- Textarea -->
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="solicitação">Solicitação</label>
+                            <div class="col-md-8">                     
+                                <textarea class="form-control" id="solicitacao" name="solicitação"></textarea>
+                            </div>
+                        </div>            
+
+                        </fieldset>
+                    </form>  
+                    
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>   
