@@ -10,6 +10,7 @@
         
         <script src="js/jquery-3.1.0.min.js"></script>
         <script src="js/bootstrap.js"></script>                      
+        <script src="js/login.js"></script>                      
         
     </head>
     <body>
@@ -20,14 +21,17 @@
                     <div class="account-wall">
                         <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                              alt="">
-                        <form class="form-signin">
-                            <input type="text" class="form-control" placeholder="Email" required autofocus>
-                            <input type="password" class="form-control" placeholder="Password" required>
+                        <form id="form-login" class="form-signin" action="teste.php">
+                            
+                         <div id="alerta-form" class="alert alert-danger hide" role="alert"></div>    
+                         
+                            <input id="login" type="text" class="form-control" placeholder="Email" required autofocus>
+                            <input id="senha" type="password" class="form-control" placeholder="Password" required>
                             <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
                             <label class="checkbox pull-left col-md-offset-1">
                                 <input type="checkbox" value="remember-me">
                                 Lembrar por uma semana
-                            </label>                            
+                            </label>                             
                         </form>
                     </div>                    
                 </div>

@@ -1,6 +1,11 @@
 $(document).ready(function(){
     
-    carregaOS();    
+    carregaOS();  
+    
+    $('#logout').click(function(){
+        document.cookie = "os-login=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        location.href = "/login.html";
+    });
 });
 
 var abreOS = function(){
