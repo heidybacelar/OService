@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 var abreOS = function(){
     
-    var os = {"num": $(this).attr('os-num')}
+    var os = {"num": $(this).attr('os-num')} 
     $.getJSON('/model/exibir-os.php',os, function(dados){
         
         $('#modal-os .campo-numero').html(dados[0].numero);
@@ -25,11 +25,11 @@ var abreOS = function(){
     });
 };
 
-function carregaOS(){
+function carregaOS(filtro){
     
     $('#lista-os tbody').empty();
     
-    $.getJSON('/model/listar-os.php', function(dados){
+    $.getJSON('/model/listar-os.php', filtro, function(dados){
         
         for(var i in dados){
             

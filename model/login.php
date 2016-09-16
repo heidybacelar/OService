@@ -16,7 +16,8 @@ if(count($resultado) > 0){
     //usuario logado
     
     $_SESSION['usuario'] = $resultado[0];
-    echo '{"status": "ok"}';
+    echo '{"status": "ok",'
+        . '"tipo": "'.$_SESSION['usuario']['tipo'].'"}';
 } else {
     //usuario ou senha incorretos
     echo '{"status": "erro", "msg": "Usuário ou senha incorretos"}';
